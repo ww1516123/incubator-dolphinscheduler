@@ -19,6 +19,7 @@ else
 		mysql --user=root --password=$MYSQL_ROOT_PWD -e "CREATE DATABASE IF NOT EXISTS \`$ESZ_DB\` CHARACTER SET utf8 COLLATE utf8_general_ci; FLUSH PRIVILEGES;"
 		echo "导入mysql数据"
 		nohup /opt/escheduler/script/create_escheduler.sh &
+		echo "init" > /nohup.out
 		sleep 90
 	fi
 	

@@ -44,10 +44,10 @@ if [ "$command" = "api-server" ]; then
   LOG_FILE="-Dlogging.config=conf/apiserver_logback.xml"
   CLASS=cn.escheduler.api.ApiApplicationServer
 elif [ "$command" = "master-server" ]; then
-  LOG_FILE="-Dspring.config.location=conf/application_master.properties -Ddruid.mysql.usePingMethod=false"
+  LOG_FILE="-Dlogback.configurationFile=conf/master_logback.xml -Dspring.config.location=conf/application_master.properties -Ddruid.mysql.usePingMethod=false"
   CLASS=cn.escheduler.server.master.MasterServer
 elif [ "$command" = "worker-server" ]; then
-  LOG_FILE="-Dspring.config.location=conf/application_worker.properties -Ddruid.mysql.usePingMethod=false"
+  LOG_FILE="--Dlogback.configurationFile=conf/worker_logback.xml  -Dspring.config.location=conf/application_worker.properties -Ddruid.mysql.usePingMethod=false"
   CLASS=cn.escheduler.server.worker.WorkerServer
 elif [ "$command" = "alert-server" ]; then
   LOG_FILE="-Dlogback.configurationFile=conf/alert_logback.xml"
